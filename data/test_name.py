@@ -10,17 +10,13 @@ import torch
 
 import torch
 
-# Đường dẫn tới file .pt
 file_path = '20180402-114759-vggface2.pth'
 
-# Load mô hình từ file .pt
 model = torch.load(file_path, map_location=torch.device('cpu'))
 
-# In ra shape của từng layer trong mô hình
 for name, param in model.items():
     print(f"Layer: {name}, Shape: {param.shape}")
 
-# Nếu mô hình có thuộc tính state_dict, bạn có thể truy cập vào đó để xem chi tiết hơn
 if hasattr(model, 'state_dict'):
     state_dict = model.state_dict()
     for key, value in state_dict.items():
